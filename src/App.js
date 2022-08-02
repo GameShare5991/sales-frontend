@@ -8,7 +8,7 @@ function App() {
 
     useEffect(() => {
         const queryParams = new URLSearchParams(window.location.search);
-        const userName = queryParams.get("names");
+        const userName = queryParams.get("name");
 
         const url = "http://localhost:4005/sales/user/" + userName;
         console.log(userName);
@@ -19,10 +19,12 @@ function App() {
                 const json = await response.json();
 
                 setSales(json);
+                console.log(json)
             } catch (error) {
                 console.error("error", error);
             }
         };
+        fetchData();
 
     }, [])
 
