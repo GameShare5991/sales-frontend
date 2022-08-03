@@ -16,3 +16,18 @@ docker run \
 
 ```
 
+# build docker
+npm run build
+docker build . -t jackjackzhou/sales-frontend
+
+# push image:
+docker push jackjackzhou/sales-frontend
+
+# kubectl create&run
+minikube start
+kubectl create -f sales-frontend-deployment.yaml
+minikube tunnel
+minikube dashboard
+
+# clean up
+kubectl delete -f sales-frontend-deployment.yaml
